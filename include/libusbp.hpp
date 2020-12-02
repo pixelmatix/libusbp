@@ -403,6 +403,15 @@ namespace libusbp
         return device(device_pointer);
     }
 
+    /*! Wrapper for libusbp_find_device_with_vid_pid_sn(). */
+    inline libusbp::device find_device_with_vid_pid_sn(uint16_t vendor_id, uint16_t product_id, std::string serial_number)
+    {
+        libusbp_device * device_pointer;
+        throw_if_needed(libusbp_find_device_with_vid_pid_sn(
+                vendor_id, product_id, serial_number.c_str(), &device_pointer));
+        return device(device_pointer);
+    }
+
     /*! Wrapper for a ::libusbp_generic_interface pointer. */
     class generic_interface : public unique_pointer_wrapper_with_copy<libusbp_generic_interface>
     {

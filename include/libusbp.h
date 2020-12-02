@@ -292,6 +292,13 @@ libusbp_error * libusbp_find_device_with_vid_pid(
     uint16_t product_id,
     libusbp_device ** device);
 
+LIBUSBP_API LIBUSBP_WARN_UNUSED
+libusbp_error * libusbp_find_device_with_vid_pid_sn(
+    uint16_t vendor_id,
+    uint16_t product_id,
+    const char * serial_number,
+    libusbp_device ** device);
+
 /*! Makes a copy of a device object.  If this function is successful, you will
  * need to free the copy by calling libusbp_device_free() at some point. */
 LIBUSBP_API LIBUSBP_WARN_UNUSED
